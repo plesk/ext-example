@@ -31,6 +31,6 @@ try {
     }
 
 }catch(PleskAPIParseException $e){
-    echo $e->getMessage();
+    echo $e->getMessage() . "\n";
     exit(1);
 }
