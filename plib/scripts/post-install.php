@@ -9,7 +9,7 @@ $request = <<<APICALL
       <properties>
          <internal>true</internal>
          <place>navigation</place>
-         <url>/modules/example</url>
+         <url>/modules/example/index.php</url>
          <text>Example Module</text>
       </properties>
    </create-custombutton>
@@ -30,7 +30,7 @@ try {
         exit(1);
     }
 
-}catch(PleskAPIParseException $e){
+} catch(PleskAPIParseException $e) {
     echo $e->getMessage() . "\n";
     exit(1);
 }
