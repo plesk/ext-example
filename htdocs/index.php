@@ -1,6 +1,6 @@
 <?php
 
-require_once('modules/example/Bootstrap.php');
+pm_Context::init('example');
 
-$application = new Example_Application();
-$application->run();
+$application = new pm_Application();
+$application->init();

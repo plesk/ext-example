@@ -1,7 +1,7 @@
 <?php
 
-pm_Bootstrap::init();
-$id = pm_Bootstrap::getDbAdapter()->fetchOne("select val from misc where param = 'moduleExampleCustomButton'");
+pm_Context::init('example');
+$id = pm_Settings::get('customButtonId');
 
 $request = <<<APICALL
 <ui>
@@ -18,7 +18,6 @@ try {
 
     $result = $response->ui->{"delete-custombutton"}->result;
     if (true || 'ok' == $result->status) {
-        pm_Bootstrap::getDbAdapter()->delete('misc', array("param = 'moduleExampleCustomButton'"));
         echo "done\n";
         exit(0);
     } else {

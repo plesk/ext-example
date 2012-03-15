@@ -7,10 +7,12 @@ class IndexController extends pm_Controller_Action
         $this->view->pageTitle = 'Example Module';
         $this->view->test = 'This is index action for testing module.';
 
+        $test = pm_Settings::get('testing');
+
         $form = new pm_Form_Simple();
         $form->addElement('textarea', 'test', array(
-            'label' => 'test',
-            'value' => '',
+            'label' => 'Lets remember this text',
+            'value' => $test,
             'class' => 'f-middle-size',
             'rows' => 4,
             'required' => true,
@@ -19,14 +21,15 @@ class IndexController extends pm_Controller_Action
             ),
         ));
         $form->addControlButtons(array(
-            'cancelLink' => '/',
+            'cancelLink' => pm_Context::getModulesListUrl(),
         ));
 
         if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
             // Form proccessing here
+            pm_Settings::set('testing', $form->getValue('test'));
 
             $this->_status->addMessage('info', 'ok');
-            $this->_helper->json(array('redirect' => '/'));
+            $this->_helper->json(array('redirect' => pm_Context::getBaseUrl()));
         }
 
         $this->view->form = $form;
