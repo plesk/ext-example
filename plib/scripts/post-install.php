@@ -1,4 +1,5 @@
 <?php
+pm_Context::init('example');
 
 if (false !== ($upgrade = array_search('upgrade', $argv))) {
     $upgradeVersion = $argv[$upgrade + 1];
@@ -9,13 +10,15 @@ if (false !== ($upgrade = array_search('upgrade', $argv))) {
         $id = pm_Bootstrap::getDbAdapter()->fetchOne("select val from misc where param = 'moduleExampleCustomButton'");
         pm_Bootstrap::getDbAdapter()->delete('misc', array("param = 'moduleExampleCustomButton'"));
 
-        pm_Context::init('example');
         pm_Settings::set('customButtonId', $id);
     }
 
     echo "done\n";
     exit(0);
 }
+
+$iconPath = rtrim(pm_Context::getHtdocsDir(), '/') . '/images/icon_16.gif';
+$baseUrl = pm_Context::getBaseUrl();
 
 $request = <<<APICALL
 <ui>
@@ -24,10 +27,10 @@ $request = <<<APICALL
             <admin/>
          </owner>
       <properties>
-         <file>/usr/local/psa/admin/htdocs/skins/default/plesk/icons/help_on.gif</file>
+         <file>$iconPath</file>
          <internal>true</internal>
          <place>navigation</place>
-         <url>/modules/example/index.php</url>
+         <url>$baseUrl</url>
          <text>Example Module</text>
       </properties>
    </create-custombutton>
@@ -39,7 +42,6 @@ try {
 
     $result = $response->ui->{"create-custombutton"}->result;
     if ('ok' == $result->status) {
-        pm_Context::init('example');
         pm_Settings::set('customButtonId', $result->id);
         echo "done\n";
         exit(0);

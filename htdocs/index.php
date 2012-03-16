@@ -3,4 +3,4 @@
 pm_Context::init('example');
 
 $application = new pm_Application();
-$application->init();
+$application->run();
