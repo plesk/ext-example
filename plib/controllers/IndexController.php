@@ -9,13 +9,11 @@ class IndexController extends pm_Controller_Action
         $this->view->tabs = array(
             array(
                 'title' => 'Index',
-                'link' => pm_Context::getBaseUrl() . 'index.php/index/index',
-                'active' => 'index' == $this->_getParam('action')
+                'action' => 'index',
             ),
             array(
                 'title' => 'Test',
-                'link' => pm_Context::getBaseUrl() . 'index.php/index/test',
-                'active' => 'test' == $this->_getParam('action')
+                'action' => 'test',
             ),
         );
     }
