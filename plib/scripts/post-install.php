@@ -29,6 +29,7 @@ $request = <<<APICALL
       <properties>
          <file>$iconPath</file>
          <internal>true</internal>
+         <noframe>true</noframe>
          <place>navigation</place>
          <url>$baseUrl</url>
          <text>Example Module</text>

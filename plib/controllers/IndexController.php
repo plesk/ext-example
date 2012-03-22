@@ -101,5 +101,13 @@ class IndexController extends pm_Controller_Action
     {
         $this->view->pageTitle = 'Test';
 
+        $this->view->tools = array(
+            array(
+                'icon' => $this->view->skinUrl('/') . "img/icons/big/manage-mobile-sites_32.gif",
+                'title' => 'Unity mobile',
+                'description' => 'Tools test',
+                'link' => pm_Context::getModulesListUrl(),
+            ),
+        );
     }
 }
