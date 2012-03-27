@@ -6,21 +6,31 @@ class IndexController extends pm_Controller_Action
     {
         parent::init();
 
+        $this->view->pageTitle = 'Example Module';
+
         $this->view->tabs = array(
             array(
-                'title' => 'Index',
-                'action' => 'index',
+                'title' => 'Form',
+                'action' => 'form',
             ),
             array(
-                'title' => 'Test',
-                'action' => 'test',
+                'title' => 'Tools',
+                'action' => 'tools',
+            ),
+            array(
+                'title' => 'List',
+                'action' => 'list',
             ),
         );
     }
 
     public function indexAction()
     {
-        $this->view->pageTitle = 'Example Module';
+        $this->_redirect('index.php/index/form');
+    }
+
+    public function formAction()
+    {
         $this->view->test = 'This is index action for testing module.';
 
         $form = new pm_Form_Simple();
@@ -97,17 +107,72 @@ class IndexController extends pm_Controller_Action
         $this->view->form = $form;
     }
 
-    public function testAction()
+    public function toolsAction()
     {
-        $this->view->pageTitle = 'Test';
-
         $this->view->tools = array(
             array(
-                'icon' => $this->view->skinUrl('/') . "img/icons/big/manage-mobile-sites_32.gif",
-                'title' => 'Unity mobile',
-                'description' => 'Tools test',
+                'icon' => $this->view->skinUrl('/') . "img/icons/big/site-aps_32.gif",
+                'title' => 'Example',
+                'description' => 'Example module with UI samples',
+                'link' => pm_Context::getBaseUrl(),
+            ),
+            array(
+                'icon' => $this->view->skinUrl('/') . "img/icons/big/modules_32.gif",
+                'title' => 'Modules',
+                'description' => 'Modules installed in the Panel',
                 'link' => pm_Context::getModulesListUrl(),
             ),
         );
+
+        $this->view->smallTools = array(
+            array(
+                'title' => 'Example',
+                'description' => 'Example module with UI samples',
+                'class' => 'sb-app-info',
+                'link' => pm_Context::getBaseUrl(),
+            ),
+            array(
+                'title' => 'Modules',
+                'description' => 'Modules installed in the Panel',
+                'class' => 'sb-suspend',
+                'link' => pm_Context::getModulesListUrl(),
+            ),
+        );
+    }
+
+    public function listAction()
+    {
+        $list = $this->_getListRandom();
+
+        $this->view->list = $list;
+    }
+
+    public function listDataAction()
+    {
+        $list = $this->_getListRandom();
+
+        $this->_helper->json($list->fetchData());
+    }
+
+    private function _getListRandom()
+    {
+        $data = array();
+        for ($i = 0; $i < 150; $i++) {
+            $data[] = array(
+                'column-1' => (string)rand(),
+                'column-2' => (string)rand(),
+            );
+        }
+
+        $list = new pm_View_List_Simple($this->view, $this->_request);
+        $list->setData($data);
+        $list->setColumns(array(
+            'column-1' => 'column-1-title',
+            'column-2' => 'column-2-title',
+        ));
+        $list->setTools(array());
+        $list->setDataUrl(array('action' => 'list-data'));
+
+        return $list;
     }
 }
