@@ -6,8 +6,10 @@ class IndexController extends pm_Controller_Action
     {
         parent::init();
 
+        // Init title for all actions
         $this->view->pageTitle = 'Example Module';
 
+        // Init tabs for all actions
         $this->view->tabs = array(
             array(
                 'title' => 'Form',
@@ -26,13 +28,16 @@ class IndexController extends pm_Controller_Action
 
     public function indexAction()
     {
-        $this->_redirect('index.php/index/form');
+        // Default action will be formAction
+        $this->_forward('form');
     }
 
     public function formAction()
     {
+        // Display simple text in view
         $this->view->test = 'This is index action for testing module.';
 
+        // Init form here
         $form = new pm_Form_Simple();
         $form->addElement('text', 'exampleText', array(
             'label' => 'Example Text',
@@ -100,7 +105,7 @@ class IndexController extends pm_Controller_Action
             pm_Settings::set('exampleRadio', $form->getValue('exampleRadio'));
             pm_Settings::set('exampleCheckbox', $form->getValue('exampleCheckbox'));
 
-            $this->_status->addMessage('info', 'ok');
+            $this->_status->addMessage('info', 'Data was successfully saved.');
             $this->_helper->json(array('redirect' => pm_Context::getBaseUrl()));
         }
 
@@ -109,6 +114,7 @@ class IndexController extends pm_Controller_Action
 
     public function toolsAction()
     {
+        // Tools for pm_View_Helper_RenderTools
         $this->view->tools = array(
             array(
                 'icon' => $this->view->skinUrl('/') . "img/icons/big/site-aps_32.gif",
@@ -124,6 +130,7 @@ class IndexController extends pm_Controller_Action
             ),
         );
 
+        // Tools for pm_View_Helper_RenderSmallTools
         $this->view->smallTools = array(
             array(
                 'title' => 'Example',
@@ -144,6 +151,7 @@ class IndexController extends pm_Controller_Action
     {
         $list = $this->_getListRandom();
 
+        // List object for pm_View_Helper_RenderList
         $this->view->list = $list;
     }
 
@@ -151,26 +159,34 @@ class IndexController extends pm_Controller_Action
     {
         $list = $this->_getListRandom();
 
+        // Json data from pm_View_List_Simple
         $this->_helper->json($list->fetchData());
     }
 
     private function _getListRandom()
     {
         $data = array();
+        $iconPath = pm_Context::getBaseUrl() . 'images/icon_16.gif';
         for ($i = 0; $i < 150; $i++) {
             $data[] = array(
-                'column-1' => (string)rand(),
-                'column-2' => (string)rand(),
+                'column-1' => '<a href="#">' . (string)rand() . '</a>',
+                'column-2' => '<img src="' . $iconPath . '" /> ' . (string)rand(),
             );
         }
 
         $list = new pm_View_List_Simple($this->view, $this->_request);
         $list->setData($data);
         $list->setColumns(array(
-            'column-1' => 'column-1-title',
-            'column-2' => 'column-2-title',
+            'column-1' => array(
+                'title' => 'Random with link',
+                'noEscape' => true,
+            ),
+            'column-2' => array(
+                'title' => 'Random with image',
+                'noEscape' => true,
+            ),
         ));
-        $list->setTools(array());
+        // Take into account listDataAction corresponds to the URL /list-data/
         $list->setDataUrl(array('action' => 'list-data'));
 
         return $list;
