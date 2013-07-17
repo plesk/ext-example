@@ -184,6 +184,7 @@ class IndexController extends pm_Controller_Action
             'column-2' => array(
                 'title' => 'Random with image',
                 'noEscape' => true,
+                'sortable' => false,
             ),
         ));
         // Take into account listDataAction corresponds to the URL /list-data/
