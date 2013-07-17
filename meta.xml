@@ -3,8 +3,9 @@
   <id>example</id>
   <name>Modules SDK Example</name>
   <description>This module is an example module with UI samples</description>
+  <buy_url>http://example.com/</buy_url>
   <version>1.5</version>
-  <release>1</release>
+  <release>2</release>
   <vendor>Parallels, Inc.</vendor>
   <plesk_min_version>11.0.1</plesk_min_version>
 </module>
