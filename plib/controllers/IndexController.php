@@ -117,13 +117,13 @@ class IndexController extends pm_Controller_Action
         // Tools for pm_View_Helper_RenderTools
         $this->view->tools = array(
             array(
-                'icon' => $this->view->skinUrl('/') . "img/icons/big/site-aps_32.gif",
+                'icon' => pm_Context::getBaseUrl() . 'images/hosting-setup.png',
                 'title' => 'Example',
                 'description' => 'Example module with UI samples',
                 'link' => pm_Context::getBaseUrl(),
             ),
             array(
-                'icon' => $this->view->skinUrl('/') . "img/icons/big/modules_32.gif",
+                'icon' => pm_Context::getBaseUrl() . 'images/databases.png',
                 'title' => 'Modules',
                 'description' => 'Modules installed in the Panel',
                 'link' => pm_Context::getModulesListUrl(),
