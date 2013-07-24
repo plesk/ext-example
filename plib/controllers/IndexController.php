@@ -149,7 +149,7 @@ class IndexController extends pm_Controller_Action
 
     public function listAction()
     {
-        $list = $this->_getListRandom();
+        $list = $this->_getNumbersList();
 
         // List object for pm_View_Helper_RenderList
         $this->view->list = $list;
@@ -157,20 +157,20 @@ class IndexController extends pm_Controller_Action
 
     public function listDataAction()
     {
-        $list = $this->_getListRandom();
+        $list = $this->_getNumbersList();
 
         // Json data from pm_View_List_Simple
         $this->_helper->json($list->fetchData());
     }
 
-    private function _getListRandom()
+    private function _getNumbersList()
     {
         $data = array();
         $iconPath = pm_Context::getBaseUrl() . 'images/icon_16.gif';
-        for ($i = 0; $i < 150; $i++) {
+        for ($index = 1; $index < 150; $index++) {
             $data[] = array(
-                'column-1' => '<a href="#">' . (string)rand() . '</a>',
-                'column-2' => '<img src="' . $iconPath . '" /> ' . (string)rand(),
+                'column-1' => '<a href="#">link #' . $index . '</a>',
+                'column-2' => '<img src="' . $iconPath . '" /> image #' . $index,
             );
         }
 
@@ -178,11 +178,12 @@ class IndexController extends pm_Controller_Action
         $list->setData($data);
         $list->setColumns(array(
             'column-1' => array(
-                'title' => 'Random with link',
+                'title' => 'Link',
                 'noEscape' => true,
+                'searchable' => true,
             ),
             'column-2' => array(
-                'title' => 'Random with image',
+                'title' => 'Description',
                 'noEscape' => true,
                 'sortable' => false,
             ),
