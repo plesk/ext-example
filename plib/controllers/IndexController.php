@@ -7,7 +7,7 @@ class IndexController extends pm_Controller_Action
         parent::init();
 
         // Init title for all actions
-        $this->view->pageTitle = 'Example Module';
+        $this->view->pageTitle = $this->lmsg('pageTitle', ['product' => 'Plesk']);
 
         // Init tabs for all actions
         $this->view->tabs = array(
