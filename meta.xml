@@ -6,7 +6,7 @@
   <description>This extension is an example extension with UI samples.</description>
   <buy_url>http://example.com/</buy_url>
   <version>1.8</version>
-  <release>3</release>
+  <release>4</release>
   <vendor>Parallels, Inc.</vendor>
-  <plesk_min_version>12.0</plesk_min_version>
+  <plesk_min_version>12.1</plesk_min_version>
 </module>
