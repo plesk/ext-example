@@ -1,5 +1,5 @@
 <?php
-// Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved.
+// Copyright 1999-2014. Parallels IP Holdings GmbH.
 $memoryLimit = ini_get('memory_limit');
 switch (true) {
     case false !== strpos($memoryLimit, 'K'):
