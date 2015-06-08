@@ -1,0 +1,8 @@
+Extension Example
+
+A test extension intended to demonstrate various aspects of using the API.
+
+The following techniques are demonstrated:
+* Creation of a custom button in the post-install script.
+* Creation of an interface by using MVC.
+* Creation of a form.
