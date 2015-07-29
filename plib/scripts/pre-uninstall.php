@@ -25,7 +25,7 @@ try {
         exit(1);
     }
 
-} catch(PleskAPIParseException $e) {
+} catch (PleskAPIParseException $e) {
     echo $e->getMessage() . "\n";
     exit(1);
 }
