@@ -2,6 +2,9 @@
 // Copyright 1999-2016. Parallels IP Holdings GmbH.
 pm_Context::init('example');
 
+// This code is just an example of post-install script, do not use it in production
+// See https://github.com/plesk/ext-custom-buttons for custom buttons integration
+
 if (false !== ($upgrade = array_search('upgrade', $argv))) {
     $upgradeVersion = $argv[$upgrade + 1];
     echo "upgrading from version $upgradeVersion\n";
