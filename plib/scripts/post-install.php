@@ -1,5 +1,5 @@
 <?php
-// Copyright 1999-2015. Parallels IP Holdings GmbH.
+// Copyright 1999-2016. Parallels IP Holdings GmbH.
 pm_Context::init('example');
 
 if (false !== ($upgrade = array_search('upgrade', $argv))) {
