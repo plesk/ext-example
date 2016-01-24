@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 1999-2015. Parallels IP Holdings GmbH. -->
+<!-- Copyright 1999-2016. Parallels IP Holdings GmbH. -->
 <module>
   <id>example</id>
   <name>Extensions SDK Example</name>
   <description>This extension is an example extension with UI samples.</description>
   <buy_url>http://example.com/</buy_url>
-  <url>https://github.com/plesk/ext-example</url>
-  <version>1.8</version>
-  <release>10</release>
-  <vendor>Odin</vendor>
-  <plesk_min_version>12.0</plesk_min_version>
+  <version>1.9</version>
+  <release>4</release>
+  <vendor>Plesk</vendor>
+  <plesk_min_version>12.1</plesk_min_version>
 </module>

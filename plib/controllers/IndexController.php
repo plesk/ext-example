@@ -1,5 +1,5 @@
 <?php
-// Copyright 1999-2015. Parallels IP Holdings GmbH.
+// Copyright 1999-2016. Parallels IP Holdings GmbH.
 class IndexController extends pm_Controller_Action
 {
     public function init()
@@ -165,18 +165,31 @@ class IndexController extends pm_Controller_Action
 
     private function _getNumbersList()
     {
+        if (!isset($_SESSION['module']['example']['removed'])) {
+            $_SESSION['module']['example']['removed'] = [];
+        }
+
         $data = array();
         $iconPath = pm_Context::getBaseUrl() . 'images/icon_16.gif';
         for ($index = 1; $index < 150; $index++) {
-            $data[] = array(
+            if (in_array($index, $_SESSION['module']['example']['removed'])) {
+                continue;
+            }
+
+            $data[$index] = array(
                 'column-1' => '<a href="#">link #' . $index . '</a>',
                 'column-2' => '<img src="' . $iconPath . '" /> image #' . $index,
             );
         }
 
-        $list = new pm_View_List_Simple($this->view, $this->_request);
+        $options = [
+            'defaultSortField' => 'column-1',
+            'defaultSortDirection' => pm_View_List_Simple::SORT_DIR_DOWN,
+        ];
+        $list = new pm_View_List_Simple($this->view, $this->_request, $options);
         $list->setData($data);
         $list->setColumns(array(
+            pm_View_List_Simple::COLUMN_SELECTION,
             'column-1' => array(
                 'title' => 'Link',
                 'noEscape' => true,
@@ -188,9 +201,42 @@ class IndexController extends pm_Controller_Action
                 'sortable' => false,
             ),
         ));
+        $list->setTools([
+            [
+                'title' => 'Hide',
+                'description' => 'Make selected rows invisible.',
+                'class' => 'sb-make-invisible',
+                'execGroupOperation' => [
+                    'submitHandler' => 'function(url, ids) {
+                        $A(ids).each(function(id) {
+                            $("' . $list->getId() . '")
+                                .select("[name=\'listCheckbox[]\'][value=\'" + id.value + "\']")
+                                .first()
+                                .up("tr")
+                                .hide();
+                        });
+                    }'
+                ],
+            ], [
+                'title' => 'Remove',
+                'description' => 'Remove selected rows.',
+                'class' => 'sb-remove-selected',
+                'execGroupOperation' => $this->_helper->url('remove'),
+            ],
+        ]);
         // Take into account listDataAction corresponds to the URL /list-data/
         $list->setDataUrl(array('action' => 'list-data'));
 
         return $list;
+    }
+
+    public function removeAction()
+    {
+        $messages = [];
+        foreach ((array)$this->_getParam('ids') as $id) {
+            $_SESSION['module']['example']['removed'][] = $id;
+            $messages[] = ['status' => 'info', 'content' => "Row #$id was successfully removed."];
+        }
+        $this->_helper->json(['status' => 'success', 'statusMessages' => $messages]);
     }
 }

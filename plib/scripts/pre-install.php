@@ -1,5 +1,8 @@
 <?php
-// Copyright 1999-2015. Parallels IP Holdings GmbH.
+// Copyright 1999-2016. Parallels IP Holdings GmbH.
+
+// This code is just an example of pre-install script, do not use it in production
+
 $memoryLimit = ini_get('memory_limit');
 switch (true) {
     case false !== strpos($memoryLimit, 'K'):

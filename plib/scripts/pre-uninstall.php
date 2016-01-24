@@ -1,6 +1,10 @@
 <?php
-// Copyright 1999-2015. Parallels IP Holdings GmbH.
+// Copyright 1999-2016. Parallels IP Holdings GmbH.
 pm_Context::init('example');
+
+// This code is just an example of pre-uninstall script, do not use it in production
+// See https://github.com/plesk/ext-custom-buttons for custom buttons integration
+
 $id = pm_Settings::get('customButtonId');
 
 $request = <<<APICALL
