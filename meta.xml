@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved. -->
+<!-- Copyright 1999-2015. Parallels IP Holdings GmbH. -->
 <module>
   <id>example</id>
   <name>Extensions SDK Example</name>
@@ -7,6 +7,6 @@
   <buy_url>http://example.com/</buy_url>
   <version>1.9</version>
   <release>4</release>
-  <vendor>Parallels, Inc.</vendor>
+  <vendor>Plesk</vendor>
   <plesk_min_version>12.1</plesk_min_version>
 </module>

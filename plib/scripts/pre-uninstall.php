@@ -1,5 +1,5 @@
 <?php
-// Copyright 1999-2014. Parallels IP Holdings GmbH. All Rights Reserved.
+// Copyright 1999-2015. Parallels IP Holdings GmbH.
 pm_Context::init('example');
 $id = pm_Settings::get('customButtonId');
 
@@ -25,7 +25,7 @@ try {
         exit(1);
     }
 
-} catch(PleskAPIParseException $e) {
+} catch (PleskAPIParseException $e) {
     echo $e->getMessage() . "\n";
     exit(1);
 }
