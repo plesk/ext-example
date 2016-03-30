@@ -1,0 +1,112 @@
+<?php
+// Copyright 1999-2016. Parallels IP Holdings GmbH.
+?>
+<?php echo $this->renderTabs($this->tabs); ?>
+
+<h3>Your Containers</h3>
+<?php echo $this->ActiveList([
+    'columnsNumber' => 1,
+    'locale' => [
+        'noObjects' => 'No items',
+    ],
+    'data' => [
+        [
+            'id' => 'container-1',
+            'icon' =>  pm_Context::getBaseUrl() . 'images/databases.png',
+            'title' =>  pm_Locale::lmsg('service1Title'),
+            'status' => [
+                'title' => pm_Locale::lmsg('status1Title'),
+                'class' => 'label-success',
+            ],
+            'primaryActions' => [
+                [
+                    'title' => 'primary action1',
+                    'link' => pm_Context::getActionUrl('index', 'list') . '/id/list',
+                ],
+            ],
+            'summary' => [
+                [
+                    'name' => pm_Locale::lmsg('param1Title'),
+                    'value' => 'Value 1',
+                ],
+                [
+                    'name' => pm_Locale::lmsg('param2Title'),
+                    'value' => 'Value 2',
+                ],
+            ],
+            'toolbar' => [
+                [
+                    'title' => pm_Locale::lmsg('action1Title'),
+                    'iconClass' => 'icon-start',
+
+                ],
+                [
+                    'title' => pm_Locale::lmsg('action3Title'),
+                    'iconClass' => 'icon-restart',
+
+                ],
+                [
+                    'title' => pm_Locale::lmsg('action2Title'),
+                    'iconClass' => 'icon-delete',
+
+
+                ]
+            ],
+            'services' => [
+                [
+                    'title' => 'NewService',
+                    'icon' => pm_Context::getBaseUrl() . 'images/file-manager.png',
+
+                    'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
+                    'toolbar' => [
+                        [
+                            'title' => 'toolbar in service',
+                            'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
+                        ],
+                    ],
+                ],
+            ],
+
+            'additionalHtml' => '<H3>Some html block for data<H3>',
+            'actions' => [
+                [
+                    'title' => pm_Locale::lmsg('action5Title'),
+                    'icon' => pm_Context::getBaseUrl() . 'images/panel.png',
+                    'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
+
+                ],
+                [
+                    'title' => pm_Locale::lmsg('action6Title'),
+                    'icon' => pm_Context::getBaseUrl() . 'images/manage.png',
+                    'link' => pm_Context::getActionUrl('index', 'tools') . '/id/tools',
+                ],
+            ]
+        ],
+        [
+            'id' => 'container-2',
+            'icon' =>  pm_Context::getBaseUrl() . 'images/details.png',
+            'title' => pm_Locale::lmsg('service2Title'),
+            'status' => [
+                'title' => pm_Locale::lmsg('status2Title'),
+                'class' => 'label-inactive',
+            ],
+            'summary' => [
+                [
+                    'name' => pm_Locale::lmsg('param3Title'),
+                    'value' => 'Value 3',
+                ],
+            ],
+            'toolbar' => [
+                [
+                    'title' => pm_Locale::lmsg('action4Title'),
+                    'iconClass' => 'icon-start',
+
+                ],
+
+
+            ],
+        ],
+
+    ],
+
+]); ?>

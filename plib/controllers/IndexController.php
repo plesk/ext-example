@@ -23,6 +23,10 @@ class IndexController extends pm_Controller_Action
                 'title' => 'List',
                 'action' => 'list',
             ],
+            [
+                'title' => 'Active List',
+                'action' => 'activelist',
+            ],
         ];
     }
 
@@ -155,14 +159,6 @@ class IndexController extends pm_Controller_Action
         $this->view->list = $list;
     }
 
-    public function listDataAction()
-    {
-        $list = $this->_getNumbersList();
-
-        // Json data from pm_View_List_Simple
-        $this->_helper->json($list->fetchData());
-    }
-
     private function _getNumbersList()
     {
         if (!isset($_SESSION['module']['example']['removed'])) {
@@ -230,6 +226,14 @@ class IndexController extends pm_Controller_Action
         return $list;
     }
 
+    public function listDataAction()
+    {
+        $list = $this->_getNumbersList();
+
+        // Json data from pm_View_List_Simple
+        $this->_helper->json($list->fetchData());
+    }
+
     public function removeAction()
     {
         $messages = [];
@@ -238,5 +242,9 @@ class IndexController extends pm_Controller_Action
             $messages[] = ['status' => 'info', 'content' => "Row #$id was successfully removed."];
         }
         $this->_helper->json(['status' => 'success', 'statusMessages' => $messages]);
+    }
+
+    public function activelistAction()
+    {
     }
 }
