@@ -1,0 +1,89 @@
+<?php
+// Copyright 1999-2016. Parallels IP Holdings GmbH.
+?>
+<?php echo $this->renderTabs($this->tabs); ?>
+
+<h3>Your Containers</h3>
+<?php echo $this->ActiveList([
+    'columnsNumber' => 1,
+    'locale' => [
+       'noObjects' => 'No',
+    ],
+    'data' => [
+        [
+            'id' => 'container-1',
+            'icon' =>  pm_Context::getBaseUrl() . 'images/databases.png',
+            'title' =>  pm_Locale::lmsg('service1Title'),
+            'status' => [
+                'title' => pm_Locale::lmsg('status1Title'),
+                'class' => 'label-success',
+            ],
+            'summary' => [
+                [
+                    'name' => pm_Locale::lmsg('param1Title'),
+                    'value' => 'Value 1',
+                ],
+                [
+                    'name' => 'jjjjjj',//pm_Locale::lmsg('param2Title'),
+                    'value' => 'Value 2',
+                ],
+            ],
+            'toolbar' => [
+                [
+                    'title' => pm_Locale::lmsg('action1Title'),
+                    'iconClass' => 'icon-start',
+                    'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
+                ],
+                [
+                    'title' => pm_Locale::lmsg('action55Title'),
+                    'iconClass' => 'icon-delete',
+                    'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
+
+                ]
+            ],
+            'additionalHtml' => '<H1>прпрпрпрпр</H1>',
+            'actions' => [
+                [
+                    'title' => pm_Locale::lmsg('action2Title'),
+                    'icon' => pm_Context::getBaseUrl() . 'images/action2.png',
+                    'link' => pm_Context::getActionUrl('index', 'action2') . '/id/container-1',
+                ],
+                [
+                    'title' => pm_Locale::lmsg('action3Title'),
+                    'icon' => pm_Context::getBaseUrl() . 'images/action3.png',
+                    'link' => pm_Context::getActionUrl('index', 'action3') . '/id/container-1',
+                ],
+            ]
+        ],
+        [
+            'id' => 'container-2',
+            'icon' =>  pm_Context::getBaseUrl() . 'images/details.png',
+            'title' =>  pm_Locale::lmsg('service1Title'),
+            'status' => [
+                'title' => pm_Locale::lmsg('status2Title'),
+                'class' => 'label-inactive',
+            ],
+            'summary' => [
+                [
+                    'name' => pm_Locale::lmsg('param3Title'),
+                    'value' => 'Value 3',
+                ],
+            ],
+            'toolbar' => [
+                [
+                    'title' => pm_Locale::lmsg('action4Title'),
+                    'iconClass' => 'icon-start',
+                    'link' => pm_Context::getActionUrl('index', 'action4') . '/id/container-2',
+                ],
+
+
+            ],
+        ],
+
+    ],
+
+]); ?>
+<p>
+    <a href="<?php echo pm_Context::getActionUrl('index', 'page1'); ?>">Go to Page 1.</a>
+    <a href="<?php echo pm_Context::getActionUrl('index', 'page2'); ?>">Go to Page 2.</a>
+</p>

@@ -23,6 +23,10 @@ class IndexController extends pm_Controller_Action
                 'title' => 'List',
                 'action' => 'list',
             ],
+            [
+                'title' => 'Active List',
+                'action' => 'activelist',
+            ],
         ];
     }
 
@@ -238,5 +242,9 @@ class IndexController extends pm_Controller_Action
             $messages[] = ['status' => 'info', 'content' => "Row #$id was successfully removed."];
         }
         $this->_helper->json(['status' => 'success', 'statusMessages' => $messages]);
+    }
+
+    public function activelistAction()
+    {
     }
 }
