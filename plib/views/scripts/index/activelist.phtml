@@ -21,7 +21,7 @@
             'primaryActions' => [
                 [
                     'title' => 'primary action1',
-                    'link' => pm_Context::getActionUrl('index', 'list') . '/id/list',
+                    'link' => pm_Context::getActionUrl('index', 'list') . '/id/55',
                 ],
             ],
             'summary' => [
@@ -36,9 +36,9 @@
             ],
             'toolbar' => [
                 [
-                    'title' => pm_Locale::lmsg('action1Title'),
+                    'title' => pm_Locale::lmsg(pm_Settings::get('service1Status') == 'started' ? 'action2Title' : 'action1Title'),
                     'iconClass' => 'icon-start',
-                    //'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
+                    'link' => pm_Context::getActionUrl('index', 'service1') . (pm_Settings::get('service1Status') == 'started' ? '/stop' : '/start'),
                 ],
                 [
                     'title' => pm_Locale::lmsg('action3Title'),

@@ -247,4 +247,14 @@ class IndexController extends pm_Controller_Action
     public function activelistAction()
     {
     }
+
+    public function service1Action()
+    {
+        if (strpos($this->view->url(), 'start') !== false) {
+            pm_Settings::set('service1Status', 'started');
+        } else if (strpos($this->view->url(), 'stop') !== false) {
+            pm_Settings::set('service1Status', 'stopped');
+        }
+        $this->_helper->viewRenderer('activelist');
+    }
 }
