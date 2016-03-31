@@ -255,6 +255,6 @@ class IndexController extends pm_Controller_Action
         } else if (strpos($this->view->url(), 'stop') !== false) {
             pm_Settings::set('service1Status', 'stopped');
         }
-        $this->_helper->viewRenderer('activelist');
+        $this->_redirect('index/activelist');
     }
 }
