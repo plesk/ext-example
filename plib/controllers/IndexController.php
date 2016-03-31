@@ -159,14 +159,6 @@ class IndexController extends pm_Controller_Action
         $this->view->list = $list;
     }
 
-    public function listDataAction()
-    {
-        $list = $this->_getNumbersList();
-
-        // Json data from pm_View_List_Simple
-        $this->_helper->json($list->fetchData());
-    }
-
     private function _getNumbersList()
     {
         if (!isset($_SESSION['module']['example']['removed'])) {
@@ -232,6 +224,14 @@ class IndexController extends pm_Controller_Action
         $list->setDataUrl(['action' => 'list-data']);
 
         return $list;
+    }
+
+    public function listDataAction()
+    {
+        $list = $this->_getNumbersList();
+
+        // Json data from pm_View_List_Simple
+        $this->_helper->json($list->fetchData());
     }
 
     public function removeAction()

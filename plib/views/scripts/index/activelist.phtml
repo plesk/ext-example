@@ -7,7 +7,7 @@
 <?php echo $this->ActiveList([
     'columnsNumber' => 1,
     'locale' => [
-       'noObjects' => 'No',
+        'noObjects' => 'No items',
     ],
     'data' => [
         [
@@ -18,13 +18,19 @@
                 'title' => pm_Locale::lmsg('status1Title'),
                 'class' => 'label-success',
             ],
+            'primaryActions' => [
+                [
+                    'title' => 'primary action1',
+                    'link' => pm_Context::getActionUrl('index', 'list') . '/id/list',
+                ],
+            ],
             'summary' => [
                 [
                     'name' => pm_Locale::lmsg('param1Title'),
                     'value' => 'Value 1',
                 ],
                 [
-                    'name' => 'jjjjjj',//pm_Locale::lmsg('param2Title'),
+                    'name' => pm_Locale::lmsg('param2Title'),
                     'value' => 'Value 2',
                 ],
             ],
@@ -32,33 +38,56 @@
                 [
                     'title' => pm_Locale::lmsg('action1Title'),
                     'iconClass' => 'icon-start',
-                    'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
-                ],
-                [
-                    'title' => pm_Locale::lmsg('action55Title'),
-                    'iconClass' => 'icon-delete',
-                    'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
-
-                ]
-            ],
-            'additionalHtml' => '<H1>прпрпрпрпр</H1>',
-            'actions' => [
-                [
-                    'title' => pm_Locale::lmsg('action2Title'),
-                    'icon' => pm_Context::getBaseUrl() . 'images/action2.png',
-                    'link' => pm_Context::getActionUrl('index', 'action2') . '/id/container-1',
+                    //'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
                 ],
                 [
                     'title' => pm_Locale::lmsg('action3Title'),
-                    'icon' => pm_Context::getBaseUrl() . 'images/action3.png',
-                    'link' => pm_Context::getActionUrl('index', 'action3') . '/id/container-1',
+                    'iconClass' => 'icon-restart',
+                    //'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
+                ],
+                [
+                    'title' => pm_Locale::lmsg('action2Title'),
+                    'iconClass' => 'icon-delete',
+                    //'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
+
+                ]
+            ],
+            'services' => [
+                [
+                    'title' => 'NewService',
+                    'icon' => pm_Context::getBaseUrl() . 'images/file-manager.png',
+
+                    'link' => 'qwe',
+                    'toolbar' => [
+                        [
+                            'title' => 'toolbar in service',
+                            'href' => 'sd',
+                        ],
+                    ],
+                ],
+            ],
+
+            'additionalHtml' => '<H3>Some html block for data<H3>',
+            'actions' => [
+                [
+                    'title' => pm_Locale::lmsg('action5Title'),
+                    'icon' => pm_Context::getBaseUrl() . 'images/panel.png',
+                    //'link' => pm_Context::getActionUrl('index', 'action2') . '/id/credentials-info',
+                    'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
+
+                ],
+                [
+                    'title' => pm_Locale::lmsg('action6Title'),
+                    'icon' => pm_Context::getBaseUrl() . 'images/manage.png',
+                    //'link' => pm_Context::getActionUrl('index', 'action3') . '/id/container-1',
+                    'link' => pm_Context::getActionUrl('index', 'tools') . '/id/tools',
                 ],
             ]
         ],
         [
             'id' => 'container-2',
             'icon' =>  pm_Context::getBaseUrl() . 'images/details.png',
-            'title' =>  pm_Locale::lmsg('service1Title'),
+            'title' => pm_Locale::lmsg('service2Title'),
             'status' => [
                 'title' => pm_Locale::lmsg('status2Title'),
                 'class' => 'label-inactive',
@@ -73,7 +102,7 @@
                 [
                     'title' => pm_Locale::lmsg('action4Title'),
                     'iconClass' => 'icon-start',
-                    'link' => pm_Context::getActionUrl('index', 'action4') . '/id/container-2',
+                    //'link' => pm_Context::getActionUrl('index', 'action4') . '/id/container-2',
                 ],
 
 
@@ -83,7 +112,3 @@
     ],
 
 ]); ?>
-<p>
-    <a href="<?php echo pm_Context::getActionUrl('index', 'page1'); ?>">Go to Page 1.</a>
-    <a href="<?php echo pm_Context::getActionUrl('index', 'page2'); ?>">Go to Page 2.</a>
-</p>
