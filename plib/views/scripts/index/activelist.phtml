@@ -4,7 +4,9 @@
 <?php echo $this->renderTabs($this->tabs); ?>
 
 <h3>Your Containers</h3>
-<?php echo $this->ActiveList([
+<?php
+var_dump($this->itemStatus);
+echo $this->ActiveList([
     'columnsNumber' => 1,
     'locale' => [
         'noObjects' => 'No items',
@@ -16,7 +18,7 @@
             'title' =>  pm_Locale::lmsg('service1Title'),
             'status' => [
                 'title' => pm_Locale::lmsg('status1Title'),
-                'class' => 'label-success',
+                'class' => $this->itemStatus == 'started' ? 'label-success' : 'label-inactive',
             ],
             'primaryActions' => [
                 [
@@ -61,7 +63,7 @@
                     'toolbar' => [
                         [
                             'title' => 'toolbar in service',
-                            'href' => 'sd',
+                            'link' => 'sd',
                         ],
                     ],
                 ],

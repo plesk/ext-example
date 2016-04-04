@@ -246,6 +246,7 @@ class IndexController extends pm_Controller_Action
 
     public function activelistAction()
     {
+        $this->view->itemStatus = pm_Settings::get('service1Status');
     }
 
     public function service1Action()
