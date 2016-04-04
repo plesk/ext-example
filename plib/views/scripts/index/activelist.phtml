@@ -5,7 +5,6 @@
 
 <h3>Your Containers</h3>
 <?php
-var_dump($this->itemStatus);
 echo $this->ActiveList([
     'columnsNumber' => 1,
     'locale' => [
@@ -17,7 +16,7 @@ echo $this->ActiveList([
             'icon' =>  pm_Context::getBaseUrl() . 'images/databases.png',
             'title' =>  pm_Locale::lmsg('service1Title'),
             'status' => [
-                'title' => pm_Locale::lmsg('status1Title'),
+                'title' => pm_Locale::lmsg($this->itemStatus == 'started' ? 'status1Title' : 'status2Title'),
                 'class' => $this->itemStatus == 'started' ? 'label-success' : 'label-inactive',
             ],
             'primaryActions' => [
@@ -38,20 +37,17 @@ echo $this->ActiveList([
             ],
             'toolbar' => [
                 [
-                    'title' => pm_Locale::lmsg(pm_Settings::get('service1Status') == 'started' ? 'action2Title' : 'action1Title'),
-                    'iconClass' => 'icon-start',
-                    'link' => pm_Context::getActionUrl('index', 'service1') . (pm_Settings::get('service1Status') == 'started' ? '/stop' : '/start'),
+                    'title' => pm_Locale::lmsg($this->itemStatus == 'started' ? 'action2Title' : 'action1Title'),
+                    'iconClass' => $this->itemStatus == 'started' ? 'icon-delete' : 'icon-start',
+                    'link' => pm_Context::getActionUrl('index', 'service1') . ($this->itemStatus == 'started' ? '/stop' : '/start'),
                 ],
                 [
                     'title' => pm_Locale::lmsg('action3Title'),
                     'iconClass' => 'icon-restart',
-                    //'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
                 ],
                 [
                     'title' => pm_Locale::lmsg('action2Title'),
                     'iconClass' => 'icon-delete',
-                    //'link' => pm_Context::getActionUrl('index', 'action1') . '/id/container-1',
-
                 ]
             ],
             'services' => [
@@ -74,14 +70,11 @@ echo $this->ActiveList([
                 [
                     'title' => pm_Locale::lmsg('action5Title'),
                     'icon' => pm_Context::getBaseUrl() . 'images/panel.png',
-                    //'link' => pm_Context::getActionUrl('index', 'action2') . '/id/credentials-info',
                     'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
-
                 ],
                 [
                     'title' => pm_Locale::lmsg('action6Title'),
                     'icon' => pm_Context::getBaseUrl() . 'images/manage.png',
-                    //'link' => pm_Context::getActionUrl('index', 'action3') . '/id/container-1',
                     'link' => pm_Context::getActionUrl('index', 'tools') . '/id/tools',
                 ],
             ]
@@ -104,13 +97,8 @@ echo $this->ActiveList([
                 [
                     'title' => pm_Locale::lmsg('action4Title'),
                     'iconClass' => 'icon-start',
-                    //'link' => pm_Context::getActionUrl('index', 'action4') . '/id/container-2',
                 ],
-
-
             ],
         ],
-
     ],
-
 ]); ?>
