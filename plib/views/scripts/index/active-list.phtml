@@ -15,8 +15,9 @@
             'icon' =>  pm_Context::getBaseUrl() . 'images/databases.png',
             'title' =>  pm_Locale::lmsg('service1Title'),
             'status' => [
-                'title' => pm_Locale::lmsg('status1Title'),
-                'class' => 'label-success',
+                'title' => pm_Locale::lmsg($this->itemStatus == 'started' ? 'status1Title' : 'status2Title'),
+                'class' => $this->itemStatus == 'started' ? 'label-success' : 'label-inactive',
+
             ],
             'primaryActions' => [
                 [
@@ -36,20 +37,17 @@
             ],
             'toolbar' => [
                 [
-                    'title' => pm_Locale::lmsg('action1Title'),
-                    'iconClass' => 'icon-start',
-
+                    'title' => pm_Locale::lmsg($this->itemStatus == 'started' ? 'action2Title' : 'action1Title'),
+                    'iconClass' => $this->itemStatus == 'started' ? 'icon-delete' : 'icon-start',
+                    'link' => pm_Context::getActionUrl('index', 'service1') . ($this->itemStatus == 'started' ? '/stop' : '/start'),
                 ],
                 [
                     'title' => pm_Locale::lmsg('action3Title'),
                     'iconClass' => 'icon-restart',
-
                 ],
                 [
                     'title' => pm_Locale::lmsg('action2Title'),
                     'iconClass' => 'icon-delete',
-
-
                 ]
             ],
             'services' => [
@@ -73,7 +71,6 @@
                     'title' => pm_Locale::lmsg('action5Title'),
                     'icon' => pm_Context::getBaseUrl() . 'images/panel.png',
                     'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
-
                 ],
                 [
                     'title' => pm_Locale::lmsg('action6Title'),
@@ -100,12 +97,8 @@
                 [
                     'title' => pm_Locale::lmsg('action4Title'),
                     'iconClass' => 'icon-start',
-
                 ],
-
-
             ],
         ],
-
     ],
 ]);
