@@ -12,20 +12,20 @@ class IndexController extends pm_Controller_Action
         // Init tabs for all actions
         $this->view->tabs = [
             [
-                'title' => 'Form',
+                'title' => pm_Locale::lmsg('formTitle'),
                 'action' => 'form',
             ],
             [
-                'title' => 'Tools',
+                'title' => pm_Locale::lmsg('toolsTitle'),
                 'action' => 'tools',
             ],
             [
-                'title' => 'List',
+                'title' => pm_Locale::lmsg('listTitle'),
                 'action' => 'list',
             ],
             [
-                'title' => 'Active List',
-                'action' => 'activelist',
+                'title' => pm_Locale::lmsg('activeListTitle'),
+                'action' => 'active-list',
             ],
         ];
     }
@@ -244,7 +244,7 @@ class IndexController extends pm_Controller_Action
         $this->_helper->json(['status' => 'success', 'statusMessages' => $messages]);
     }
 
-    public function activelistAction()
+    public function activeListAction()
     {
     }
 }

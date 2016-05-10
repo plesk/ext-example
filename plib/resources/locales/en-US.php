@@ -1,6 +1,10 @@
 <?php
 // Copyright 1999-2016. Parallels IP Holdings GmbH.
-$messages = array(
+$messages = [
+    'formTitle' => 'Form',
+    'toolsTitle' => 'Tools',
+    'listTitle' => 'List',
+    'activeListTitle' => 'Active List',
     'pageTitle' => 'Extension Example for %%product%%',
     'service1Title' => 'Service title1',
     'service2Title' => 'Service title2',
@@ -15,4 +19,7 @@ $messages = array(
     'action4Title' => 'Start Service',
     'action5Title' => 'Form',
     'action6Title' => 'Tools',
-);
+    'activeListHeader' => 'Your Containers',
+    'htmlBlock' => 'Some html block for data',
+    'toolbarTitle' => 'toolbar in service',
+];

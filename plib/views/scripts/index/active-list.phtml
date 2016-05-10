@@ -3,8 +3,8 @@
 ?>
 <?php echo $this->renderTabs($this->tabs); ?>
 
-<h3>Your Containers</h3>
-<?php echo $this->ActiveList([
+    <h3><?php echo pm_Locale::lmsg('activeListHeader'); ?></h3>
+<?php echo $this->activeList([
     'columnsNumber' => 1,
     'locale' => [
         'noObjects' => 'No items',
@@ -60,14 +60,14 @@
                     'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
                     'toolbar' => [
                         [
-                            'title' => 'toolbar in service',
+                            'title' => pm_Locale::lmsg('toolbarTitle'),
                             'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
                         ],
                     ],
                 ],
             ],
 
-            'additionalHtml' => '<H3>Some html block for data<H3>',
+            'additionalHtml' => '<H3>' . pm_Locale::lmsg('htmlBlock') . '<H3>',
             'actions' => [
                 [
                     'title' => pm_Locale::lmsg('action5Title'),
@@ -108,5 +108,4 @@
         ],
 
     ],
-
-]); ?>
+]);
