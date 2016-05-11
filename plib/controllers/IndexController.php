@@ -9,22 +9,36 @@ class IndexController extends pm_Controller_Action
         // Init title for all actions
         $this->view->pageTitle = $this->lmsg('pageTitle', ['product' => 'Plesk']);
 
-        // Init tabs for all actions
-        $this->view->tabs = [
+        // Init common tabs
+        $tabs = [
             [
-                'title' => 'Form',
+                'title' => pm_Locale::lmsg('formTitle'),
                 'action' => 'form',
             ],
             [
-                'title' => 'Tools',
+                'title' => pm_Locale::lmsg('toolsTitle'),
                 'action' => 'tools',
             ],
             [
-                'title' => 'List',
+                'title' => pm_Locale::lmsg('listTitle'),
                 'action' => 'list',
-            ],
+            ]
         ];
+        // Init tabs for versions greater or equal 17.0
+        if (version_compare(pm_ProductInfo::getVersion(), '17.0') >= 0) {
+            $newTabs = [
+                [
+                    'title' => pm_Locale::lmsg('activeListTitle'),
+                    'action' => 'active-list',
+                ]
+            ];
+            $tabs = array_merge($tabs, $newTabs);
+        }
+        // Init tabs for all actions
+        $this->view->tabs = $tabs;
     }
+
+
 
     public function indexAction()
     {
@@ -155,14 +169,6 @@ class IndexController extends pm_Controller_Action
         $this->view->list = $list;
     }
 
-    public function listDataAction()
-    {
-        $list = $this->_getNumbersList();
-
-        // Json data from pm_View_List_Simple
-        $this->_helper->json($list->fetchData());
-    }
-
     private function _getNumbersList()
     {
         if (!isset($_SESSION['module']['example']['removed'])) {
@@ -230,6 +236,14 @@ class IndexController extends pm_Controller_Action
         return $list;
     }
 
+    public function listDataAction()
+    {
+        $list = $this->_getNumbersList();
+
+        // Json data from pm_View_List_Simple
+        $this->_helper->json($list->fetchData());
+    }
+
     public function removeAction()
     {
         $messages = [];
@@ -238,5 +252,20 @@ class IndexController extends pm_Controller_Action
             $messages[] = ['status' => 'info', 'content' => "Row #$id was successfully removed."];
         }
         $this->_helper->json(['status' => 'success', 'statusMessages' => $messages]);
+    }
+
+    public function activeListAction()
+    {
+        $this->view->itemStatus = pm_Settings::get('service1Status');
+    }
+
+    public function service1Action()
+    {
+        if (strpos($this->view->url(), 'start') !== false) {
+            pm_Settings::set('service1Status', 'started');
+        } else if (strpos($this->view->url(), 'stop') !== false) {
+            pm_Settings::set('service1Status', 'stopped');
+        }
+        $this->_redirect('index/active-list');
     }
 }
