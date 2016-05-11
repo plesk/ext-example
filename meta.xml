@@ -9,5 +9,4 @@
   <release>5</release>
   <vendor>Plesk</vendor>
   <plesk_min_version>12.5</plesk_min_version>
-  <plesk_max_version>17.0</plesk_max_version>
 </module>

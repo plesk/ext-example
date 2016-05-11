@@ -9,8 +9,8 @@ class IndexController extends pm_Controller_Action
         // Init title for all actions
         $this->view->pageTitle = $this->lmsg('pageTitle', ['product' => 'Plesk']);
 
-        // Init tabs for all actions
-        $this->view->tabs = [
+        // Init common tabs
+        $tabs = [
             [
                 'title' => pm_Locale::lmsg('formTitle'),
                 'action' => 'form',
@@ -22,13 +22,23 @@ class IndexController extends pm_Controller_Action
             [
                 'title' => pm_Locale::lmsg('listTitle'),
                 'action' => 'list',
-            ],
-            [
-                'title' => pm_Locale::lmsg('activeListTitle'),
-                'action' => 'active-list',
-            ],
+            ]
         ];
+        // Init tabs for versions greater or equal 17.0
+        if (version_compare(pm_ProductInfo::getVersion(), '17.0') >= 0) {
+            $newTabs = [
+                [
+                    'title' => pm_Locale::lmsg('activeListTitle'),
+                    'action' => 'active-list',
+                ]
+            ];
+            $tabs = array_merge($tabs, $newTabs);
+        }
+        // Init tabs for all actions
+        $this->view->tabs = $tabs;
     }
+
+
 
     public function indexAction()
     {
