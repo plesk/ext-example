@@ -26,4 +26,4 @@ $messages = [
     'activeListHeader' => 'Your Containers',
     'htmlBlock' => 'Some html block for data',
     'toolbarTitle' => 'toolbar in service',
-   ];
+];

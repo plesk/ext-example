@@ -5,18 +5,18 @@
 
     <h3><?php echo pm_Locale::lmsg('activeListHeader'); ?></h3>
 <?php echo $this->activeList([
-    'layout' => [
-        'type' => pm_View_Helper_ActiveList::LAYOUT_RESPONSIVECOLUMN,
-        'stretched' => true,
-        'columns' =>  'xl-2 xxl-3',
-                ],
-    'locale' => [
-        'noObjects' => 'No items',
-    ],
-    'data' => [
+        'layout' => [
+            'type' => pm_View_Helper_ActiveList::LAYOUT_RESPONSIVECOLUMN,
+            'stretched' => true,
+            'columns' => 'xl-2 xxl-3',
+        ],
+        'locale' => [
+            'noObjects' => 'No items',
+        ],
+        'data' => [
         [
             'id' => 'container-1',
-            'icon' =>  pm_Context::getBaseUrl() . 'images/databases.png',
+            'icon' => pm_Context::getBaseUrl() . 'images/databases.png',
             'title' => pm_Locale::lmsg('service1Title'),
             'labels' => [[
                 'value' => pm_Locale::lmsg($this->itemStatus == 'started' ? 'status1Title' : 'status2Title'),
@@ -83,7 +83,7 @@
         ],
         [
             'id' => 'container-2',
-            'icon' =>  pm_Context::getBaseUrl() . 'images/details.png',
+            'icon' => pm_Context::getBaseUrl() . 'images/details.png',
             'title' => pm_Locale::lmsg('service2Title'),
             'labels' => [
                 [
@@ -110,7 +110,6 @@
         ],
         [
             'id' => 'container-3',
-            //'icon' =>  pm_Context::getBaseUrl() . 'images/details.png',
             'title' => pm_Locale::lmsg('service4Title'),
             'labels' => [
                 [
