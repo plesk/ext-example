@@ -38,8 +38,6 @@ class IndexController extends pm_Controller_Action
         $this->view->tabs = $tabs;
     }
 
-
-
     public function indexAction()
     {
         // Default action will be formAction
