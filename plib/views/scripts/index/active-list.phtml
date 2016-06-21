@@ -5,15 +5,15 @@
 
     <h3><?php echo pm_Locale::lmsg('activeListHeader'); ?></h3>
 <?php echo $this->activeList([
-        'layout' => [
-            'type' => pm_View_Helper_ActiveList::LAYOUT_RESPONSIVECOLUMN,
-            'stretched' => true,
-            'columns' => 'xl-2 xxl-3',
-        ],
-        'locale' => [
-            'noObjects' => 'No items',
-        ],
-        'data' => [
+    'layout' => [
+        'type' => pm_View_Helper_ActiveList::LAYOUT_RESPONSIVECOLUMN,
+        'stretched' => true,
+        'columns' => 'xl-2 xxl-3',
+    ],
+    'locale' => [
+        'noObjects' => 'No items',
+    ],
+    'data' => [
         [
             'id' => 'container-1',
             'icon' => pm_Context::getBaseUrl() . 'images/databases.png',
@@ -55,7 +55,7 @@
             ],
             'services' => [
                 [
-                    'title' => 'NewService',
+                    'title' => pm_Locale::lmsg('NewService1'),
                     'icon' => pm_Context::getBaseUrl() . 'images/file-manager.png',
 
                     'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
@@ -106,6 +106,22 @@
                 [
                     'title' => pm_Locale::lmsg('action4Title'),
                     'iconClass' => 'icon-start',
+                ],
+            ],
+            'services' => [
+                [
+                    'title' => pm_Locale::lmsg('NewService2'),
+                    'icon' => pm_Context::getBaseUrl() . 'images/file-manager.png',
+
+                    'link' => pm_Context::getActionUrl('index', 'form') . '/id/form',
+                    'messages' => [
+                        [
+                            'icon' => pm_Context::getBaseUrl() . 'images/appkey-ok.png',
+                            'info' => pm_Locale::lmsg('serviceMessage1') . ' <a href="#!">example</a>',
+                            'noEscape' => true,
+                        ],
+                    ],
+
                 ],
             ],
         ],
