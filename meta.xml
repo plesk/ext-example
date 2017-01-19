@@ -7,8 +7,10 @@
   <category>example</category>
   <buy_url>http://example.com/</buy_url>
   <url>https://github.com/plesk/ext-example</url>
+  <help_url>https://docs.plesk.com/en-US/current/extensions-guide/</help_url>
+  <support_url>https://github.com/plesk/ext-example/issues</support_url>
   <version>1.9</version>
-  <release>6</release>
+  <release>7</release>
   <vendor>Plesk</vendor>
   <plesk_min_version>12.5</plesk_min_version>
 </module>
