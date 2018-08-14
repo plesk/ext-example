@@ -1,1 +1,5 @@
-/vendor/
+node_modules
+src/htdocs/index.php
+src/htdocs/dist
+yarn-error.log
+coverage

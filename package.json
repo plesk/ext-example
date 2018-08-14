@@ -1,0 +1,21 @@
+{
+  "name": "ext-example",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@plesk/plesk-ext-sdk": "0.3.0",
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
+  },
+  "scripts": {
+    "prepare": "yarn build",
+    "dev": "plesk-ext-sdk dev",
+    "build": "plesk-ext-sdk build",
+    "lint": "eslint src/frontend",
+    "pretest": "yarn lint",
+    "test": "plesk-ext-sdk test"
+  }
+}
