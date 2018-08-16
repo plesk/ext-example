@@ -3,7 +3,6 @@ module.exports = {
         {
             path: '/overview',
             component: 'Overview',
-            title: 'Overview',
         },
         {
             path: '/list',
@@ -12,8 +11,7 @@ module.exports = {
         },
         {
             path: '/form',
-            component: 'FormExample',
-            title: 'Form Example',
+            component: 'forms/FormExample',
         },
     ],
 };

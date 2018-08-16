@@ -1,4 +1,5 @@
 node_modules
+src/plib/vendor
 src/htdocs/index.php
 src/htdocs/dist
 yarn-error.log

@@ -100,9 +100,9 @@
     eslint "^4.19.1"
     eslint-plugin-react "^7.7.0"
 
-"@plesk/plesk-ext-sdk@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@plesk/plesk-ext-sdk/-/plesk-ext-sdk-0.3.0.tgz#f7b6f7f743ab230c8a6b276d5d316d6b04c3b32b"
+"@plesk/plesk-ext-sdk@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@plesk/plesk-ext-sdk/-/plesk-ext-sdk-0.4.0.tgz#29016d24fb1ac710da375f14e8047ef666350fda"
   dependencies:
     "@plesk/eslint-config" "^0.0.7"
     "@plesk/ui-library" "^1.4.0"

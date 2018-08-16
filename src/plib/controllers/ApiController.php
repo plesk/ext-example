@@ -25,21 +25,20 @@ class ApiController extends pm_Controller_Action
     public function saveAction()
     {
         $this->_helper->serverForm(
-            new Zend_Filter_Input(
-                [
-                    'exampleText' => [
+            [
+                'exampleText' => [
+                    'required' => true,
+                    'filters' => [
                         ['StringTrim'],
                     ],
-                ],
-                [
-                    'exampleText' => [
-                        'presence' => 'required',
-                        ['StringLength', 3],
+                    'validators' => [
+                        ['StringLength', true, 3],
                     ],
-                ]
-            ),
+                ],
+            ],
             function ($args) {
                 pm_Settings::set('exampleText', $args['exampleText']);
+                return $args;
             }
         );
     }

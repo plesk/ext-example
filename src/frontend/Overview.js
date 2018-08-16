@@ -1,4 +1,4 @@
-import { createElement, Component, Alert, PropTypes } from '@plesk/plesk-ext-sdk';
+import { createElement, Component, Alert, Translate, PropTypes } from '@plesk/plesk-ext-sdk';
 import axios from 'axios';
 
 export default class Overview extends Component {
@@ -7,24 +7,24 @@ export default class Overview extends Component {
     };
 
     state = {
-        data: null,
+        date: null,
     };
 
     componentDidMount() {
         const { baseUrl } = this.props;
-        axios.get(`${baseUrl}/api/date`).then(({ data }) => this.setState({ data }));
+        axios.get(`${baseUrl}/api/date`).then(({ data }) => this.setState({ date: data }));
     }
 
     render() {
-        const { data } = this.state;
+        const { date } = this.state;
 
-        if (!data) {
+        if (!date) {
             return null;
         }
 
         return (
             <Alert intent="info">
-                {`Server time: ${data}`}
+                <Translate content="Overview.message" params={{ date }} />
             </Alert>
         );
     }
