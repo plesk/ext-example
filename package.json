@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "dependencies": {
-    "@plesk/plesk-ext-sdk": "0.4.0",
+    "@plesk/plesk-ext-sdk": "0.5.1",
     "axios": "^0.18.0"
   },
   "devDependencies": {

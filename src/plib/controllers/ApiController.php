@@ -19,7 +19,7 @@ class ApiController extends pm_Controller_Action
             ];
         }
 
-        $this->_helper->json($data);
+        $this->_helper->serverList($data);
     }
 
     public function saveAction()
