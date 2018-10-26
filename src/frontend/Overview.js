@@ -1,4 +1,4 @@
-import { createElement, Component, Alert, Translate, PropTypes } from '@plesk/plesk-ext-sdk';
+import { createElement, Component, Alert, AuxiliaryActions, Translate, PropTypes, Link, Fragment } from '@plesk/plesk-ext-sdk';
 import axios from 'axios';
 
 export default class Overview extends Component {
@@ -23,9 +23,17 @@ export default class Overview extends Component {
         }
 
         return (
-            <Alert intent="info">
-                <Translate content="Overview.message" params={{ date }} />
-            </Alert>
+            <Fragment>
+                <Alert intent="danger">
+                    <Translate content="Overview.message" params={{ date }} />
+                </Alert>
+                <p>
+                    <AuxiliaryActions>
+                        <Link to="/overview/list"><Translate content="Overview.listExample" /></Link>
+                        <Link to="/overview/form"><Translate content="Overview.formExample" /></Link>
+                    </AuxiliaryActions>
+                </p>
+            </Fragment>
         );
     }
 }
