@@ -2,8 +2,10 @@
 $messages = [
     'app' => [
         'Overview' => [
-            'title' => 'Overview',
+            'title' => 'Extensions SDK Example',
             'message' => 'Server time: %%date%%',
+            'listExample' => 'List Example',
+            'formExample' => 'Form Example',
         ],
         'forms' => [
             'FormExample' => [
