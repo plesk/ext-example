@@ -100,12 +100,13 @@
     eslint "^4.19.1"
     eslint-plugin-react "^7.7.0"
 
-"@plesk/plesk-ext-sdk@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@plesk/plesk-ext-sdk/-/plesk-ext-sdk-0.5.2.tgz#435af3ed557b3e9a829716e6e4575fa76d7ba104"
+"@plesk/plesk-ext-sdk@0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@plesk/plesk-ext-sdk/-/plesk-ext-sdk-0.5.4.tgz#b24a8983feaa03adf0ac2bfdc33c55de4a14f96c"
+  integrity sha512-DB5HP0u+5Ci40qBF+bmuTBckJ43UUcz7Ol7aXXDAemRNrKpsk2IZLkOj7LeGfRZL4af/vg0//vAesoFqUGhBfQ==
   dependencies:
     "@plesk/eslint-config" "^0.0.7"
-    "@plesk/ui-library" "^1.4.0"
+    "@plesk/ui-library" "1.1.5"
     babel-core "^6.26.3"
     babel-jest "^23.2.0"
     babel-loader "^7.1.4"
@@ -124,17 +125,18 @@
     webpack "^4.15.0"
     yargs "^12.0.1"
 
-"@plesk/ui-library@^1.4.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@plesk/ui-library/-/ui-library-1.5.0.tgz#b5bd7a157a1464b6d52729f976505771f854764c"
+"@plesk/ui-library@1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@plesk/ui-library/-/ui-library-1.1.5.tgz#405c79a6fc70830ae803eb6d0a514ce054c1c353"
+  integrity sha1-QFx5pvxwgwroA+ttClFM4FTBw1M=
   dependencies:
     classnames "^2.2.5"
     codemirror "^5.34.0"
     marked "^0.3.6"
     popper.js "^1.12.6"
     prop-types "^15.6.0"
-    react "^16.3.2"
-    react-dom "^16.3.2"
+    react "^16.0.0"
+    react-dom "^16.0.0"
     react-measure "^2.0.2"
     react-sortable-hoc "^0.6.8"
     react-transition-group "^2.2.1"
@@ -4664,14 +4666,15 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.3.2:
-  version "16.4.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.2.tgz#4afed569689f2c561d2b8da0b819669c38a0bda4"
+react-dom@^16.0.0:
+  version "16.6.3"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
+  integrity sha512-8ugJWRCWLGXy+7PmNh8WJz3g1TaTUt1XyoIcFN+x0Zbkoz+KKdUyx1AQLYJdbFXjuF41Nmjn5+j//rxvhFjgSQ==
   dependencies:
-    fbjs "^0.8.16"
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
+    scheduler "^0.11.2"
 
 react-is@^16.4.1:
   version "16.4.1"
@@ -4748,14 +4751,15 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.3.2:
-  version "16.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
+react@^16.0.0:
+  version "16.6.3"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
+  integrity sha512-zCvmH2vbEolgKxtqXL2wmGCUxUyNheYn/C+PD1YAjfxHC54+MhdruyhO7QieQrYsYeTxrn93PM2y0jRH1zEExw==
   dependencies:
-    fbjs "^0.8.16"
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
+    scheduler "^0.11.2"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -5070,6 +5074,14 @@ sane@^2.0.0:
 sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+scheduler@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.11.2.tgz#a8db5399d06eba5abac51b705b7151d2319d33d3"
+  integrity sha512-+WCP3s3wOaW4S7C1tl3TEXp4l9lJn0ZK8G3W3WKRWmw77Z2cIFUW2MiNTMHn5sCjxN+t7N43HAOOgMjyAg5hlg==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 schema-utils@^0.4.4, schema-utils@^0.4.5:
   version "0.4.7"
