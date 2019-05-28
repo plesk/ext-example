@@ -1,4 +1,4 @@
-import { createElement, Component, Alert, AuxiliaryActions, Translate, PropTypes, Link, Fragment } from '@plesk/plesk-ext-sdk';
+import { createElement, Component, Alert, AuxiliaryActions, Translate, PropTypes, RouterLink as Link, Fragment } from '@plesk/plesk-ext-sdk';
 import axios from 'axios';
 
 export default class Overview extends Component {
