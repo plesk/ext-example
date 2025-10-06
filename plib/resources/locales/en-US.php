@@ -1,5 +1,5 @@
 <?php
-// Copyright 1999-2017. Plesk International GmbH.
+// Copyright 1999-2025. WebPros International GmbH. All rights reserved.
 $messages = [
     'formTitle' => 'Form',
     'toolsTitle' => 'Tools',
